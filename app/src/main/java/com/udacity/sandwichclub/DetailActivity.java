@@ -67,17 +67,22 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void populateUI(Sandwich sandwich) {
-        //Sandwich sandwich = JsonUtils.parseSandwichJson(json);
         mOriginTv.setText(sandwich.getPlaceOfOrigin());
         String otherNameSentence="";
-        for(String otherName: sandwich.getAlsoKnownAs()){
-            otherNameSentence+=otherName+" - ";
-        }
+        for(int j=0; j<sandwich.getAlsoKnownAs().size(); j++){
+            otherNameSentence+=sandwich.getAlsoKnownAs().get(j);
+            if(j<sandwich.getAlsoKnownAs().size()-1){
+                otherNameSentence+=" - ";
+            }
+        }//end for loop
         mAlsoKnownAs.setText(otherNameSentence);
         String theIngredients = "";
         for(int i=0; i<sandwich.getIngredients().size(); i++){
-            theIngredients+=sandwich.getIngredients().get(i)+" - ";
-        }
+            theIngredients+=sandwich.getIngredients().get(i);
+            if(i<sandwich.getIngredients().size()-1){
+                theIngredients+=" - ";
+            }
+        }//end for loop
         mIngredients.setText(theIngredients);
         mDescription.setText(sandwich.getDescription());
     }
