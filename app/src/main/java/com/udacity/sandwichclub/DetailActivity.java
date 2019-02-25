@@ -75,7 +75,7 @@ public class DetailActivity extends AppCompatActivity {
         }
         mAlsoKnownAs.setText(otherNameSentence);
         String theIngredients = "";
-i        for(int i=0; i<sandwich.getIngredients().size(); i++){
+        for(int i=0; i<sandwich.getIngredients().size(); i++){
             theIngredients+=sandwich.getIngredients().get(i)+" - ";
         }
         mIngredients.setText(theIngredients);
